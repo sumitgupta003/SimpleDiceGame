@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="index.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+
+    <title>Dice Game</title>
+</head>
+
+<body>
+
+    <section id="head">
+        <h1>Dice Game</h1>
+    </section>
+
+
+    <section id="body">
+        <div class="players">
+            <h3>Player 1</h3>
+            <img class="play" src="D_images/dice_1.png" alt="player_1 Dice">
+        </div>
+
+        <div class="players">
+            <h3>Player 2</h3>
+            <img class="play" src="D_images/dice_3.png" alt="player_1 Dice">
+        </div>
+    </section>
+
+
+    <section id="body">
+        <button id="btn">Click to start</button>
+    </section>
+
+    <script>
+
+        const Start = () => {
+            var ran = Math.ceil(Math.random() * 6);
+            const imgnum = `D_images/dice_${ran}.png`;
+            document.querySelectorAll("img")[0].setAttribute('src', imgnum);
+
+            var ran2 = Math.ceil(Math.random() * 6);
+            var imgnum2 = `D_images/dice_${ran2}.png`;
+            document.querySelectorAll("img")[1].setAttribute("src", imgnum2);
+
+            if (ran > ran2) {
+                document.querySelector("h1").innerHTML = "Player1 won!";
+            }
+            else if (ran < ran2) {
+                document.querySelector("h1").innerHTML = "Player2 won!";
+            }
+            else {
+                document.querySelector("h1").innerHTML = "It's a Draw!";
+            }
+        }
+
+        document.querySelector("button").addEventListener('click', Start);
+
+
+
+    </script>
+
+
+</body>
+
+</html>
